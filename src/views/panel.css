@@ -1,0 +1,168 @@
+.app{
+    padding-bottom: 20px;
+}
+.user-info-box{
+    width: 100%;
+    box-sizing: border-box;
+    /* padding: 25px 0; */
+}
+.user-info-box-badge{
+    display: inline-flex;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.user-info-box-badge div{
+    padding: 3px 5px;
+    color: #fff;
+}
+.user-info-box-badge div:first-child{
+    background: #020c38;
+}
+.user-info-box-badge div:last-child{
+    background: #12505e;
+}
+.tranlation-box{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+.t-b-i-1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.t-b-i-2,
+.t-b-i-5{
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.weather-box{
+    justify-content: flex-start !important;
+}
+.nba-box{}
+.nba-status-badge{
+    /* display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px; */
+    /* width: 20px;
+    aspect-ratio: 1; */
+    font-size: 8px;
+    color: #fff;
+}
+.nba-status-badge-1{
+    color: #a5a5a5;
+}
+.nba-status-badge-2{
+    color: #cd0202;
+}
+.nba-status-badge-3{
+    color: #08c501;
+}
+.nba-status-badge-4{
+    color: #81009e;
+}
+.nba-team{
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: #000;
+    color: #fff;
+}
+.comment-footer{
+    justify-content: space-between;
+}
+.comment-text{
+    line-height: 1.5;
+    color: #747474;
+}
+.bingying-box{
+    min-height: 30vw;
+    text-align: center;
+    /* line-height: 35vw; */
+    font-size: 25px;
+    font-weight: 900;
+    background: url(https://api.gumengya.com/Api/BingImg?format=image) center center / cover no-repeat;
+    position: relative;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.bingying-box::after{
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+.bingying-box span{
+    color: #fff;
+    mix-blend-mode: soft-light;
+    position: relative;
+    z-index: 1;
+    text-wrap: balance;
+    /* letter-spacing: 0.1em; */
+}
+.qq-info-box{
+    width: 100%;
+    justify-content: flex-start;
+}
+.qq-info-box div:first-child{
+    flex: 0 0 50px;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 5px;
+}
+.qq-info-box div:last-child{
+    flex-grow: 1 1 auto;
+}
+.qq-talk-box{
+    padding: 45px 20px 20px;
+    box-sizing: border-box;
+    min-height: 200px;
+    background: var(--fill-color);
+    border-radius: 10px;
+    margin-top: 60px;
+    position: relative;
+}
+.qq-talk-avatar{
+    width: var(--avatar-size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: black;
+    border: var(--space-size) solid var(--out-color);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-60%);
+    background-size: cover;
+    background-position: center center;
+}
+.qq-talk-avatar::before{
+    content: '';
+    position: absolute;
+    width: var(--space-size);
+    aspect-ratio: 1;
+    background: var(--fill-color);
+    border-radius: 0 var(--space-size) 0 0;
+    top: 38px;
+    left: -17px;
+    box-shadow: 2px -3px var(--out-color);
+}
+.qq-talk-avatar::after{
+    content: '';
+    position: absolute;
+    width: var(--space-size);
+    aspect-ratio: 1;
+    background: var(--fill-color);
+    border-radius: var(--space-size) 0 0 0;
+    top: 38px;
+    right: -17px;
+    box-shadow: -2px -3px var(--out-color);
+}
+.qq-talk-box li + li{
+    margin-top: 15px;
+}

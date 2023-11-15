@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./panel.css">
+</head>
+<body>
+    <div id="app" class="app" v-clock>
+        <div class="tranlation-box">
+            <div class="t-b-i-1">
+                <span class="fs-12 fs-b pl-10">原文</span>
+            </div>
+            <div class="t-b-i-2">
+                <span class="fs-12 fs-b pl-10">结果</span>
+            </div>
+            <div class="t-b-i-3">
+                <select class="input-box fs-12" v-model="toLang">
+                    <option v-for="lang of langs" :key="lang.value" :value="lang.value">{{ lang.label }}</option>
+                </select>
+            </div>
+            <div class="t-b-i-4">
+                <input class="input-box fs-12" v-model="text" placeholder="Press Enter" @keyup.enter="onTranslate" />
+            </div>
+            <div class="t-b-i-5">
+                <div class="input-box">
+                    <span class="lh-40 fs-b fs-12" v-if="translationText.length > 0">{{ translationText.join(';') }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div v-if="!!weatherInfo.last_update" class="fxc weather-box">
+            <div class="fxc-v">
+                <!-- <img :src="weather_icon_0" width="60" /> -->
+                <div :style="{background: `url(${WeatherAssets[weatherInfo.now.code].icon})`, backgroundSize: 'cover', width: '60px', height: '60px'}"></div>
+                <span class="fs-12 mt-10">{{ WeatherAssets[weatherInfo.now.code].title }}</span>
+            </div>
+            <div class="fs-12" style="margin-left: 30px;flex: 1 1 auto;">
+                <p>
+                    位置：{{ weatherInfo.location.name }}
+                </p>
+                <p class="mt-10">
+                    当前温度：{{ weatherInfo.now.temperature }}℃
+                </p>
+                <p class="fxc" style="justify-content: space-between;">
+                    <span>最后更新时间：{{ weatherInfo.last_update }}</span>
+                    <span style="color:#6c6c6c;margin-left: 30px;">来源：心知天气</span>
+                </p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="comment-box" v-if="commentInfo.id">
+            <div>
+                <span class="fs-12 comment-text">{{ commentInfo.text }}</span>
+            </div>
+            <div class="fxs comment-footer mt-10 fs-12">
+                <div>
+                    <span>《{{ commentInfo.name }}》- {{ commentInfo.author }}</span>
+                </div>
+                <img src="../images/netcloud.png" width="70" />
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="bingying-box">
+            <span>{{ aphorism }}</span>
+        </div>
+        <div class="divider"></div>
+        <div v-if="qqInfo.nickname" class="qq-talk-box" style="--fill-color: #303030;--avatar-size: 60px;--space-size: 10px;--out-color: #262626;">
+            <div class="qq-talk-avatar" :style="{backgroundImage: `url(${qqInfo.avatar})`}"></div>
+            <div class="fs-12 fs-b fxc">
+                <span>{{ qqInfo.nickname }}</span>
+            </div>
+            <div class="fs-12 fxc mt-10" style="color: #727272; font-size: 10px;">
+                <span>年龄: {{ qqInfo.age }}</span>
+                <span class="ml-20">等级: {{ qqInfo.level }}</span>
+                <span class="ml-20">登录天数: {{ qqInfo.login_days }}</span>
+            </div>
+            <div class="divider"></div>
+            <ul v-if="talkInfo.code === '0'">
+                <li v-for="item of talkInfo.data" class="fs-12" style="line-height: 20px;">
+                    {{ item.content }}
+                </li>
+            </ul>
+            <div v-else class="fs-12" v-html="talkInfo.msg"></div>
+        </div>
+        <div class="divider"></div>
+        <!-- <div class="fxc qq-info-box">
+            <div :style="{backgroundImage: `url(${qqInfo.avatar})`}"></div> 
+            <div v-if="qqInfo.nickname" class="ml-10">
+                <p>
+                    <span class="fs-12 fs-b">{{ qqInfo.nickname }}</span>
+                </p>
+                <p style="color: #5e5e5e;font-size: 10px;margin-top: 5px;">
+                    <span>Age: {{ qqInfo.age }}</span>
+                    <span class="ml-20">Level: {{ qqInfo.level }}</span>
+                    <span class="ml-20">Login_Days: {{ qqInfo.login_days }}</span>
+                </p>
+                <p class="fs-12" style="color: #897e00;">{{ qqInfo.sign }}</p>
+            </div>
+        </div>
+        <div class="divider"></div> -->
+        <div class="fs-12 user-info-box">
+            <div class="user-info-box-badge">
+                <div>IP</div>
+                <div>{{ userInfo.ip }}</div>
+            </div>
+            <div class="ml-10 user-info-box-badge">
+                <div>Location</div>
+                <div>{{ userInfo.location }}</div>
+            </div>
+            <div class="ml-10 user-info-box-badge">
+                <div>OS</div>
+                <div>{{ userInfo.os }}</div>
+            </div>
+            <div class="ml-10 user-info-box-badge">
+                <div>Browser</div>
+                <div>{{ userInfo.browser }}</div>
+            </div>
+            <div class="ml-10 user-info-box-badge">
+                <div>ISP</div>
+                <div>{{ userInfo.isp }}</div>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/crypto.js"></script>
+    <script src="../lib/vue.min.js"></script>
+    <script src="../dist/bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+.input-box{
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    background: #020d36;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.divider{
+    width: 100%;
+    height: 1px;
+    background: #363636;
+    margin: 20px 0;
+}
+
+p{
+    margin: 0;
+}
+
+
+.lh-40{
+    line-height: 40px;
+}
+.fs-12{
+    font-size: 12px;
+}
+.fs-b{
+    font-weight: bold;
+}
+.pl-10{
+    padding-left: 10px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.ml-10{
+    margin-left: 10px;
+}
+.mr-10{
+    margin-right: 10px;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+.ml-20{
+    margin-left: 20px;
+}
+.mr-20{
+    margin-right: 20px;
+}
+.fxc-v{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.fxc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fxs{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
